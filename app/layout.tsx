@@ -1,21 +1,21 @@
 import type { Metadata } from 'next'
-import { Alegreya, Outfit } from 'next/font/google'
+import { Crimson_Pro, Outfit } from 'next/font/google'
 import './globals.css'
 
-const fontSans = Outfit({
+const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
   weight: 'variable',
   style: ['normal'],
-  variable: '--font-sans',
+  variable: '--font-outfit',
 })
 
-const fontSerif = Alegreya({
+const crimsonPro = Crimson_Pro({
   subsets: ['latin'],
   display: 'swap',
   weight: 'variable',
   style: ['normal', 'italic'],
-  variable: '--font-serif',
+  variable: '--font-crimson-pro',
 })
 
 export const metadata: Metadata = {
@@ -31,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${fontSans.variable} ${fontSerif.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} ${crimsonPro.variable} antialiased`}>
         {children}
       </body>
     </html>

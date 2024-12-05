@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Outfit, Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
     --white: #FBFBEC;
@@ -48,6 +44,6 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply font-serif bg-background text-foreground tracking-tight;
   }
 }

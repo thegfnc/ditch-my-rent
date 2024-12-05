@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default {
   darkMode: ['class'],
@@ -9,6 +10,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-outfit)', ...fontFamily.sans],
+        serif: ['var(--font-crimson-pro)', ...fontFamily.serif],
+      },
       colors: {
         white: 'var(--white)',
         black: 'var(--black)',

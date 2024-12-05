@@ -13,7 +13,7 @@ export default function Home() {
           priority
         />
       </main>
-      <footer className='row-start-3 flex flex-wrap items-center justify-center gap-6'>
+      <footer className='row-start-3 flex flex-wrap items-center justify-center gap-6 font-sans text-xl'>
         Coming Soon
       </footer>
     </div>
