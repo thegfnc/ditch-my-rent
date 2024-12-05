@@ -3,6 +3,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div className='grid min-h-screen grid-rows-[1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 sm:p-20'>
+      <h1 className='visually-hidden'>Ditch My Rent</h1>
       <main className='flex flex-col items-center justify-center gap-12'>
         <Image
           className='dark:invert'
@@ -12,7 +13,7 @@ export default function Home() {
           height={360}
           priority
         />
-        <article className='prose-lg lg:prose-xl mx-auto max-w-[40ch]'>
+        <article className='prose-lg prose-h2:text-[24px] lg:prose-xl lg:prose-h2:text-[30px] mx-auto max-w-[40ch]'>
           <h2 className='text-balance leading-tight'>
             America has a rent problem, and we&apos;re here to help fix it.
           </h2>
