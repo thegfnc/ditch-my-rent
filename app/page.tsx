@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className='grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 sm:p-20'>
-      <main className='row-start-2 flex flex-col items-center gap-8 sm:items-start'>
+    <div className='grid min-h-screen grid-rows-[1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 sm:p-20'>
+      <main className='flex flex-col items-center justify-center gap-12'>
         <Image
           className='dark:invert'
           src='/ditch-my-rent__full-logo.svg'
@@ -12,8 +12,22 @@ export default function Home() {
           height={500}
           priority
         />
+        <article className='prose-lg lg:prose-xl mx-auto max-w-[40ch]'>
+          <h2 className='text-balance leading-tight'>
+            America has a rent problem, and we're here to help fix it.
+          </h2>
+          <p className='leading-snug'>
+            Nearly half of American households are burdened by rent, spending
+            more than 30% of their income just to keep a roof over their heads.
+            We believe everyone deserves a home that brings them happiness and
+            security, whatever "home" means to you. By embracing innovative,
+            practical, and creative solutions, we're tackling the housing crisis
+            head-on—empowering individuals to reclaim freedom and redefine the
+            American Dream.
+          </p>
+        </article>
       </main>
-      <footer className='row-start-3 flex flex-wrap items-center justify-center gap-6 font-sans text-xl'>
+      <footer className='flex flex-wrap items-center justify-center gap-6 font-sans text-xl'>
         Coming Soon
       </footer>
     </div>

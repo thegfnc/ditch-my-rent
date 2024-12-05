@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    --white: #FBFBEC;
-    --black: #0A1723;
-    --light-blue: #0DD2F5;
-    --dark-blue: #4153C4;
-    --orange: #FFB62C;
-    --red: #FD076E;
+    --white: #fbfbec;
+    --black: #0a1723;
+    --light-blue: #0dd2f5;
+    --dark-blue: #4153c4;
+    --orange: #ffb62c;
+    --red: #fd076e;
 
-    --background: #FBFBEC;
-    --foreground: #0A1723;
-    --card: #FBFBEC;
+    --background: #fbfbec;
+    --foreground: #0a1723;
+    --card: #fbfbec;
     --card-foreground: #000000;
-    --popover: #FBFBEC;
+    --popover: #fbfbec;
     --popover-foreground: #000000;
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
@@ -44,6 +44,15 @@
     @apply border-border;
   }
   body {
-    @apply font-serif bg-background text-foreground tracking-tight;
+    @apply bg-background font-serif leading-snug tracking-tight text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-semibold;
   }
 }
