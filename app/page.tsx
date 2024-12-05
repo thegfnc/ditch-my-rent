@@ -8,8 +8,8 @@ export default function Home() {
           className='dark:invert'
           src='/ditch-my-rent__full-logo.svg'
           alt='Ditch My Rent logo'
-          width={500}
-          height={500}
+          width={360}
+          height={360}
           priority
         />
         <article className='prose-lg lg:prose-xl mx-auto max-w-[40ch]'>
