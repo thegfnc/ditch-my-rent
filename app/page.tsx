@@ -14,16 +14,16 @@ export default function Home() {
         />
         <article className='prose-lg lg:prose-xl mx-auto max-w-[40ch]'>
           <h2 className='text-balance leading-tight'>
-            America has a rent problem, and we're here to help fix it.
+            America has a rent problem, and we&apos;re here to help fix it.
           </h2>
           <p className='leading-snug'>
             Nearly half of American households are burdened by rent, spending
             more than 30% of their income just to keep a roof over their heads.
             We believe everyone deserves a home that brings them happiness and
-            security, whatever "home" means to you. By embracing innovative,
-            practical, and creative solutions, we're tackling the housing crisis
-            head-on—empowering individuals to reclaim freedom and redefine the
-            American Dream.
+            security, whatever &quot;home&quot; means to you. By embracing
+            innovative, practical, and creative solutions, we&apos;re tackling
+            the housing crisis head-on—empowering individuals to reclaim freedom
+            and redefine the American Dream.
           </p>
         </article>
       </main>
