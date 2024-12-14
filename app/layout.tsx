@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { Crimson_Pro, Outfit } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     'Learn about the tools and resources available to help you ditch your rent.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -33,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${outfit.variable} ${crimsonPro.variable} antialiased`}>
+        <Header />
         {children}
+        <footer></footer>
         <Analytics />
       </body>
     </html>
