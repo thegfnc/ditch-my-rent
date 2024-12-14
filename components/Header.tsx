@@ -19,7 +19,9 @@ export default function Header() {
   return (
     <header className='sticky top-2 z-10 mx-auto max-w-screen-xl px-2 md:top-4 md:px-4'>
       <div className='bg-blackish mt-2 flex gap-4 rounded-lg p-4 md:mt-4 md:p-6'>
-        <LogoDarkTextOnly className='h-auto max-w-32' />
+        <Link href='/'>
+          <LogoDarkTextOnly className='h-auto max-w-32' />
+        </Link>
         <NavigationMenu className='max-w-full flex-grow justify-end'>
           <NavigationMenuList>
             <NavigationMenuItem>
