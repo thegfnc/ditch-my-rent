@@ -18,7 +18,7 @@ type ArticleProps = {
 
 const MediaPlayer = dynamic(() => import('@/components/MediaPlayer'))
 
-export const POST_QUERY = defineQuery(`
+const ARTICLE_QUERY = defineQuery(`
   *[_type == "DIMR_blogPost" && slug.current == $slug][0]{
     title,
     slug,
@@ -65,7 +65,7 @@ export default async function ArticlePage(props: ArticleProps) {
 
   const [articleData] = await Promise.all([
     cmsFetch<DIMR_blogPost>({
-      query: POST_QUERY,
+      query: ARTICLE_QUERY,
       params: { slug },
     }),
   ])
