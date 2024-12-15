@@ -127,7 +127,7 @@ export default async function ArticlePage(props: ArticleProps) {
               <div className='font-light italic'>
                 {articleData.author.title}
               </div>
-              <div className='mt-2 max-w-[40ch]'>{articleData.author.bio}</div>
+              <div className='mt-2 max-w-[48ch]'>{articleData.author.bio}</div>
             </div>
           </div>
         </header>
