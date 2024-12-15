@@ -33,7 +33,7 @@ const MENU_ITEMS = [
 
 export default function Header() {
   const pathname = usePathname()
-  const [isHeaderVisible, setIsVisible] = useState(true)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isMenuSheetVisible, setIsMenuSheetVisible] = useState(false)
 
@@ -45,10 +45,10 @@ export default function Header() {
 
       if (window.scrollY > lastScrollY) {
         // scroll down
-        setIsVisible(false)
+        setIsHeaderVisible(false)
       } else {
         // scroll up
-        setIsVisible(true)
+        setIsHeaderVisible(true)
       }
       setLastScrollY(window.scrollY)
     }
@@ -58,6 +58,7 @@ export default function Header() {
   }, [lastScrollY])
 
   useEffect(() => {
+    setIsHeaderVisible(true)
     setIsMenuSheetVisible(false)
   }, [pathname])
 
@@ -102,7 +103,7 @@ export default function Header() {
                   href={'/'}
                   className={`block px-6 py-2 text-lg text-blackish active:bg-blackish/10 ${pathname === '/' ? 'bg-blackish/10' : ''}`}
                   onClick={() => {
-                    setIsVisible(true)
+                    setIsHeaderVisible(true)
                     setIsMenuSheetVisible(false)
                   }}
                 >
@@ -115,7 +116,7 @@ export default function Header() {
                     href={item.href}
                     className={`block px-6 py-2 text-lg text-blackish active:bg-blackish/10 ${pathname.startsWith(item.href) ? 'bg-blackish/10' : ''}`}
                     onClick={() => {
-                      setIsVisible(true)
+                      setIsHeaderVisible(true)
                       setIsMenuSheetVisible(false)
                     }}
                   >
