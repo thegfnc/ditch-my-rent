@@ -97,7 +97,7 @@ export default function Header() {
             <SheetHeader className='px-6'>
               <SheetTitle className='text-left'>Menu</SheetTitle>
             </SheetHeader>
-            <ul className='mt-4'>
+            <ul className='mt-8'>
               <li key={'/'}>
                 <Link
                   href={'/'}

@@ -76,7 +76,7 @@ export default async function CategoryPage(props: CategoryProps) {
     <Main className='px-4 py-6 md:px-12 md:py-12'>
       <h1 className='text-4xl font-bold md:text-6xl'>{categoryName}</h1>
 
-      <div className='mt-10'>
+      <div className='mt-6 md:mt-10'>
         <h2 className='text-xl font-medium'>Articles</h2>
         <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
           {categoryData.length > 0 ? (
