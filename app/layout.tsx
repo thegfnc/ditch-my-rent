@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Crimson_Pro, Outfit } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -36,7 +37,7 @@ export default async function RootLayout({
       <body className={`${outfit.variable} ${crimsonPro.variable} antialiased`}>
         <Header />
         {children}
-        <footer></footer>
+        <Footer />
         <Analytics />
       </body>
     </html>

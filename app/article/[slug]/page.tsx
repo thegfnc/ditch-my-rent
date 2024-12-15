@@ -71,7 +71,7 @@ export default async function ArticlePage(props: ArticleProps) {
   ])
 
   return (
-    <Main className='px-4 py-6 md:px-12 md:py-12'>
+    <Main className='px-4 py-4 md:px-12 md:py-8'>
       <article className='prose mx-auto lg:prose-lg'>
         <header>
           <a
@@ -102,7 +102,7 @@ export default async function ArticlePage(props: ArticleProps) {
             </figcaption>
           </figure>
           <div className='grid grid-cols-[auto,1fr] gap-4 border-y-[1px] border-slate-400 py-4 text-sm'>
-            <Avatar className='border-blackish ml-2 mt-1 h-12 w-12 border-[1px]'>
+            <Avatar className='ml-2 mt-1 h-12 w-12 border-[1px] border-blackish'>
               <AvatarImage
                 src={getImageUrl(articleData.author.profilePicture)
                   .width(1200)
