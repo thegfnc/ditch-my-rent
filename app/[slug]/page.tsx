@@ -84,7 +84,7 @@ export default async function CategoryPage(props: CategoryProps) {
               <Link key={article._id} href={`/article/${article.slug.current}`}>
                 <Card
                   key={article._id}
-                  className='h-full bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
+                  className='flex h-full flex-col bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
                 >
                   <Image
                     src={getImageUrl(article.featuredImage)
@@ -103,7 +103,7 @@ export default async function CategoryPage(props: CategoryProps) {
                     unoptimized
                     placeholder={article.featuredImage.asset.metadata.lqip}
                   />
-                  <div className='flex flex-col justify-between'>
+                  <div className='flex flex-grow flex-col justify-between'>
                     <CardHeader>
                       <CardTitle className='leading-tighter text-[20px] font-bold'>
                         {article.title}
