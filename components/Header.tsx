@@ -14,7 +14,6 @@ import { usePathname } from 'next/navigation'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
