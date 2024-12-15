@@ -1,16 +1,18 @@
 import Link from 'next/link'
 import { LogoDarkTextOnly } from './svgs'
 import { FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
+import NewsletterSignUpForm from './NewsletterSignUpForm'
 
 export default function Footer() {
   return (
     <footer className='mx-auto max-w-screen-xl px-4 pb-4 md:px-12'>
-      <div className='mt-8 flex flex-col items-center justify-center border-t-[1px] border-blackish/20 pt-4 sm:flex-row sm:justify-between'>
+      <div className='mt-8 flex flex-col-reverse items-center justify-center gap-4 border-t-[1px] border-blackish/20 pt-8 sm:flex-row sm:justify-between sm:pr-4 sm:pt-4'>
         <Link href='/' className='inline-block p-4'>
-          <LogoDarkTextOnly className='h-auto max-w-28 opacity-70 transition-opacity hover:opacity-100' />
+          <LogoDarkTextOnly className='mt-[2px] h-auto max-w-28 opacity-70 transition-opacity hover:opacity-100' />
         </Link>
+        <NewsletterSignUpForm />
       </div>
-      <div className='mt-4 flex flex-col-reverse items-center justify-between gap-4 p-4 sm:flex-row'>
+      <div className='mt-2 flex flex-col-reverse items-center justify-between gap-4 p-4 sm:mt-4 sm:flex-row'>
         <div className='text-sm text-slate-500'>
           &copy; {new Date().getFullYear()} Ditch My Rent. All rights reserved.
         </div>

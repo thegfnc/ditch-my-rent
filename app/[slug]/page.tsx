@@ -1,5 +1,5 @@
 import { DIMR_blogPost } from '@/types'
-import { cmsFetch, getImageUrl } from '../data/client'
+import { cmsFetch, getImageUrl } from '../../data/client'
 import { defineQuery, toPlainText } from 'next-sanity'
 import getCategoryNameFromSlug from '@/utils/getCategoryNameFromSlug'
 import Main from '@/components/Main'

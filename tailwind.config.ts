@@ -52,7 +52,7 @@ export default {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'rgb(var(--blackish))',
-        input: 'hsl(var(--input))',
+        input: 'rgb(var(--input))',
         ring: 'rgb(var(--blackish))',
         chart: {
           '1': 'hsl(var(--chart-1))',

@@ -1,4 +1,4 @@
-import { cmsFetch, getImageUrl } from '@/app/data/client'
+import { cmsFetch, getImageUrl } from '@/data/client'
 import Main from '@/components/Main'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
