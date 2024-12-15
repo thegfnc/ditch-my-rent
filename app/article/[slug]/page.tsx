@@ -80,7 +80,7 @@ export default async function ArticlePage(props: ArticleProps) {
           >
             {getCategoryNameFromSlug(articleData.category)}
           </a>
-          <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[48px] font-extrabold text-blackish'>
+          <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[32px] font-extrabold text-blackish md:text-[48px]'>
             {articleData.title}
           </h1>
           <figure>

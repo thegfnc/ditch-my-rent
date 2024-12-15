@@ -74,7 +74,7 @@ export default async function CategoryPage(props: CategoryProps) {
 
   return (
     <Main className='px-4 py-6 md:px-12 md:py-12'>
-      <h1 className='text-6xl font-bold'>{categoryName}</h1>
+      <h1 className='text-4xl font-bold md:text-6xl'>{categoryName}</h1>
 
       <div className='mt-10'>
         <h2 className='text-xl font-medium'>Articles</h2>
