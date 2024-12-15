@@ -70,66 +70,76 @@ export default async function CategoryPage(props: CategoryProps) {
     }),
   ])
 
+  const categoryName = getCategoryNameFromSlug(slug)
+
   return (
     <Main className='px-4 py-6 md:px-12 md:py-12'>
-      <h1 className='text-6xl font-bold'>{getCategoryNameFromSlug(slug)}</h1>
+      <h1 className='text-6xl font-bold'>{categoryName}</h1>
 
       <div className='mt-10'>
         <h2 className='text-xl font-medium'>Articles</h2>
         <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {categoryData.map(article => (
-            <Link key={article._id} href={`/article/${article.slug.current}`}>
-              <Card
-                key={article._id}
-                className='bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
-              >
-                <Image
-                  src={getImageUrl(article.featuredImage)
-                    .width(1200)
-                    .quality(90)
-                    .url()}
-                  width={article.featuredImage.asset.metadata.dimensions.width}
-                  height={
-                    article.featuredImage.asset.metadata.dimensions.height
-                  }
-                  alt={article.featuredImage.caption}
-                  className={`aspect-[16/7] w-full object-cover`}
-                  priority
-                  unoptimized
-                  placeholder={article.featuredImage.asset.metadata.lqip}
-                />
-                <CardHeader>
-                  <CardTitle>{article.title}</CardTitle>
-                  <CardDescription>
-                    {toPlainText(article.content).slice(0, 100)}...
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <div className='grid grid-cols-[auto,1fr] items-center gap-2 text-sm'>
-                    <Avatar className='h-6 w-6 border-[1px] border-slate-400'>
-                      <AvatarImage
-                        src={getImageUrl(article.author.profilePicture)
-                          .width(1200)
-                          .quality(90)
-                          .url()}
-                        className='not-prose object-cover'
-                        style={{
-                          objectPosition: `${(article.author.profilePicture.hotspot?.x || 0.5) * 100}% ${(article.author.profilePicture.hotspot?.y || 0.5) * 100}%`,
-                        }}
-                        alt='@shadcn'
-                      />
-                      <AvatarFallback>
-                        {getInitialsFromFullName(article.author.fullName)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className='text-xs'>
-                      By <strong>{article.author.fullName}</strong>
+          {categoryData.length > 0 ? (
+            categoryData.map(article => (
+              <Link key={article._id} href={`/article/${article.slug.current}`}>
+                <Card
+                  key={article._id}
+                  className='bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
+                >
+                  <Image
+                    src={getImageUrl(article.featuredImage)
+                      .width(1200)
+                      .quality(90)
+                      .url()}
+                    width={
+                      article.featuredImage.asset.metadata.dimensions.width
+                    }
+                    height={
+                      article.featuredImage.asset.metadata.dimensions.height
+                    }
+                    alt={article.featuredImage.caption}
+                    className={`aspect-[16/7] w-full object-cover`}
+                    priority
+                    unoptimized
+                    placeholder={article.featuredImage.asset.metadata.lqip}
+                  />
+                  <CardHeader>
+                    <CardTitle className='leading-tighter text-[20px] font-bold'>
+                      {article.title}
+                    </CardTitle>
+                    <CardDescription className='font-serif'>
+                      {toPlainText(article.content).slice(0, 120)}...
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <div className='grid grid-cols-[auto,1fr] items-center gap-2 text-sm'>
+                      <Avatar className='h-6 w-6 border-[1px] border-slate-400'>
+                        <AvatarImage
+                          src={getImageUrl(article.author.profilePicture)
+                            .width(1200)
+                            .quality(90)
+                            .url()}
+                          className='not-prose object-cover'
+                          style={{
+                            objectPosition: `${(article.author.profilePicture.hotspot?.x || 0.5) * 100}% ${(article.author.profilePicture.hotspot?.y || 0.5) * 100}%`,
+                          }}
+                          alt='@shadcn'
+                        />
+                        <AvatarFallback>
+                          {getInitialsFromFullName(article.author.fullName)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className='text-xs'>
+                        By {article.author.fullName}
+                      </div>
                     </div>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Link>
-          ))}
+                  </CardFooter>
+                </Card>
+              </Link>
+            ))
+          ) : (
+            <p>{categoryName} articles coming soon...</p>
+          )}
         </div>
       </div>
     </Main>

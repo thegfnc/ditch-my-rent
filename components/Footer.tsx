@@ -5,7 +5,7 @@ import { FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 export default function Footer() {
   return (
     <footer className='mx-auto max-w-screen-xl px-4 pb-4 md:px-12'>
-      <div className='mt-8 flex items-center justify-between border-t-[1px] border-blackish/20 pt-4'>
+      <div className='mt-8 flex flex-col items-center justify-between border-t-[1px] border-blackish/20 pt-4 sm:flex-row'>
         <Link href='/' className='inline-block p-4'>
           <LogoDarkTextOnly className='h-auto max-w-28 opacity-70 transition-opacity hover:opacity-100' />
         </Link>

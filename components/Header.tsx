@@ -33,8 +33,9 @@ const MENU_ITEMS = [
 
 export default function Header() {
   const pathname = usePathname()
-  const [isVisible, setIsVisible] = useState(true)
+  const [isHeaderVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isMenuSheetVisible, setIsMenuSheetVisible] = useState(false)
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -56,16 +57,20 @@ export default function Header() {
     return () => window.removeEventListener('scroll', controlNavbar)
   }, [lastScrollY])
 
+  useEffect(() => {
+    setIsMenuSheetVisible(false)
+  }, [pathname])
+
   return (
     <header
       className={`sticky top-0 z-10 mx-auto max-w-screen-xl px-2 pb-2 transition-transform duration-300 md:px-4 md:pb-4 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <div className='h-2 backdrop-blur-sm md:h-4'></div>
-      <div className='flex justify-between gap-4 rounded-lg bg-blackish p-4 shadow-md md:px-6 md:py-4'>
+      <div className='flex justify-between gap-4 rounded-lg bg-blackish p-4 shadow-md md:px-6 md:py-5'>
         <Link href='/'>
-          <LogoLightTextOnly className='h-auto max-w-32' />
+          <LogoLightTextOnly className='mt-[2px] h-auto max-w-28' />
         </Link>
         <NavigationMenu className='hidden max-w-full flex-grow justify-end lg:flex'>
           <NavigationMenuList>
@@ -83,24 +88,38 @@ export default function Header() {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <Sheet>
+        <Sheet open={isMenuSheetVisible} onOpenChange={setIsMenuSheetVisible}>
           <SheetTrigger className='p-2 lg:hidden'>
             <MdMenu className='h-7 w-7 text-whiteish' />
           </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+          <SheetContent className='px-0 py-6'>
+            <SheetHeader className='px-6'>
+              <SheetTitle className='text-left'>Menu</SheetTitle>
             </SheetHeader>
-            <ul>
+            <ul className='mt-4'>
+              <li key={'/'}>
+                <Link
+                  href={'/'}
+                  className={`block px-6 py-2 text-lg text-blackish active:bg-blackish/10 ${pathname === '/' ? 'bg-blackish/10' : ''}`}
+                  onClick={() => {
+                    setIsVisible(true)
+                    setIsMenuSheetVisible(false)
+                  }}
+                >
+                  Home
+                </Link>
+              </li>
               {MENU_ITEMS.map(item => (
                 <li key={item.href}>
-                  <Link href={item.href} legacyBehavior passHref>
-                    <a
-                      className='block p-4 text-blackish'
-                      onClick={() => setIsVisible(true)}
-                    >
-                      {item.label}
-                    </a>
+                  <Link
+                    href={item.href}
+                    className={`block px-6 py-2 text-lg text-blackish active:bg-blackish/10 ${pathname.startsWith(item.href) ? 'bg-blackish/10' : ''}`}
+                    onClick={() => {
+                      setIsVisible(true)
+                      setIsMenuSheetVisible(false)
+                    }}
+                  >
+                    {item.label}
                   </Link>
                 </li>
               ))}

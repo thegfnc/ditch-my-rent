@@ -12,15 +12,14 @@ export default {
     extend: {
       fontFamily: {
         sans: ['var(--font-outfit)', ...fontFamily.sans],
-        serif: ['var(--font-crimson-pro)', ...fontFamily.serif],
+        serif: ['var(--font-libre-baskerville)', ...fontFamily.serif],
       },
       colors: {
         whiteish: 'rgb(var(--whiteish))',
         blackish: 'rgb(var(--blackish))',
         'light-blue': 'rgb(var(--light-blue))',
         'dark-blue': 'rgb(var(--dark-blue))',
-        orange: 'rgb(var(--orange))',
-        red: 'rgb(var(--red))',
+        'red-orange': 'rgb(var(--red-orange))',
 
         background: 'rgb(var(--whiteish))',
         foreground: 'rgb(var(--blackish))',
@@ -67,6 +66,10 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      lineHeight: {
+        tightest: '1.1',
+        tighter: '1.2',
       },
     },
   },

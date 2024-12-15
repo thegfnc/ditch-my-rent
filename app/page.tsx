@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <Main className='grid grid-rows-[1fr_20px] items-center justify-items-center gap-16 px-4 py-4 md:px-12 md:py-8'>
+    <Main className='gap-16 px-4 py-4 md:px-12 md:py-8'>
       <h1 className='visually-hidden'>Ditch My Rent</h1>
       <main className='flex flex-col items-center justify-center gap-12'>
         <Image
@@ -29,9 +29,6 @@ export default function Home() {
           </p>
         </article>
       </main>
-      <footer className='flex flex-wrap items-center justify-center gap-6 font-sans text-xl'>
-        Coming Soon
-      </footer>
     </Main>
   )
 }

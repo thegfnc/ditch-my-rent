@@ -72,15 +72,17 @@ export default async function ArticlePage(props: ArticleProps) {
 
   return (
     <Main className='px-4 py-4 md:px-12 md:py-8'>
-      <article className='prose mx-auto lg:prose-lg'>
+      <article className='prose mx-auto'>
         <header>
           <a
             href={'/' + articleData.category}
-            className='not-prose border-line-hide block uppercase'
+            className='not-prose border-line-hide text-red-orange block font-semibold uppercase'
           >
             {getCategoryNameFromSlug(articleData.category)}
           </a>
-          <h1 className='!mt-4 text-pretty'>{articleData.title}</h1>
+          <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[48px] font-extrabold text-blackish'>
+            {articleData.title}
+          </h1>
           <figure>
             <Image
               src={getImageUrl(articleData.featuredImage)
@@ -97,7 +99,7 @@ export default async function ArticlePage(props: ArticleProps) {
               unoptimized
               placeholder={articleData.featuredImage.asset.metadata.lqip}
             />
-            <figcaption className='!ml-1 !mt-2 !text-xs tracking-normal'>
+            <figcaption className='!ml-2 !mt-2 !text-xs tracking-normal'>
               {articleData.featuredImage.caption}
             </figcaption>
           </figure>

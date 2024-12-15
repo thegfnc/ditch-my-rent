@@ -8,8 +8,7 @@
     --blackish: 10 23 35;
     --light-blue: 13 210 245;
     --dark-blue: 65 83 196;
-    --orange: 255 182 44;
-    --red: 253 7 110;
+    --red-orange: 253 93 77;
 
     --background: var(--whiteish);
     --foreground: var(--blackish);
@@ -44,7 +43,7 @@
   }
 
   a {
-    @apply text-dark-blue no-underline;
+    @apply text-dark-blue no-underline underline-offset-[3px];
   }
 
   h1,
@@ -69,7 +68,7 @@
   }
 
   .border-line-hide {
-    @apply relative w-max overflow-hidden leading-tight after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:translate-x-0 after:bg-current after:duration-300 after:ease-in-out hover:after:-translate-x-full focus:after:-translate-x-full;
+    @apply relative w-max overflow-hidden leading-tight after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:translate-x-0 after:bg-current after:duration-300 after:ease-in-out hover:after:translate-x-full focus:after:translate-x-full;
   }
 
   .border-line-show {
