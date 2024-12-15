@@ -1,8 +1,9 @@
+import Main from '@/components/Main'
 import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className='grid min-h-screen grid-rows-[1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 sm:p-20'>
+    <Main className='gap-16 px-4 py-4 md:px-12 md:py-8'>
       <h1 className='visually-hidden'>Ditch My Rent</h1>
       <main className='flex flex-col items-center justify-center gap-12'>
         <Image
@@ -13,7 +14,7 @@ export default function Home() {
           height={360}
           priority
         />
-        <article className='prose-lg prose-h2:text-[24px] lg:prose-xl lg:prose-h2:text-[30px] mx-auto max-w-[40ch]'>
+        <article className='prose-lg mx-auto max-w-[40ch] lg:prose-xl prose-h2:text-[24px] lg:prose-h2:text-[30px]'>
           <h2 className='text-balance leading-tight'>
             America has a rent problem, and we&apos;re here to help fix it.
           </h2>
@@ -28,9 +29,6 @@ export default function Home() {
           </p>
         </article>
       </main>
-      <footer className='flex flex-wrap items-center justify-center gap-6 font-sans text-xl'>
-        Coming Soon
-      </footer>
-    </div>
+    </Main>
   )
 }

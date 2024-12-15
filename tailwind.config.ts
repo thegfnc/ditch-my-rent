@@ -12,25 +12,24 @@ export default {
     extend: {
       fontFamily: {
         sans: ['var(--font-outfit)', ...fontFamily.sans],
-        serif: ['var(--font-crimson-pro)', ...fontFamily.serif],
+        serif: ['var(--font-libre-baskerville)', ...fontFamily.serif],
       },
       colors: {
-        white: 'var(--white)',
-        black: 'var(--black)',
-        'light-blue': 'var(--light-blue)',
-        'dark-blue': 'var(--dark-blue)',
-        orange: 'var(--orange)',
-        red: 'var(--red)',
+        whiteish: 'rgb(var(--whiteish))',
+        blackish: 'rgb(var(--blackish))',
+        'light-blue': 'rgb(var(--light-blue))',
+        'dark-blue': 'rgb(var(--dark-blue))',
+        'red-orange': 'rgb(var(--red-orange))',
 
-        background: 'var(--white)',
-        foreground: 'var(--black)',
+        background: 'rgb(var(--whiteish))',
+        foreground: 'rgb(var(--blackish))',
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: 'rgb(var(--whiteish))',
+          foreground: 'rgb(var(--blackish))',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: 'rgb(var(--whiteish))',
+          foreground: 'rgb(var(--blackish))',
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -52,9 +51,9 @@ export default {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        border: 'hsl(var(--border))',
+        border: 'rgb(var(--blackish))',
         input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        ring: 'rgb(var(--blackish))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -67,6 +66,10 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      lineHeight: {
+        tightest: '1.1',
+        tighter: '1.2',
       },
     },
   },

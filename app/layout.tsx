@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
-import { Crimson_Pro, Outfit } from 'next/font/google'
+import { Libre_Baskerville, Outfit } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -11,12 +13,12 @@ const outfit = Outfit({
   variable: '--font-outfit',
 })
 
-const crimsonPro = Crimson_Pro({
+const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
   display: 'swap',
-  weight: 'variable',
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-crimson-pro',
+  variable: '--font-libre-baskerville',
 })
 
 export const metadata: Metadata = {
@@ -25,15 +27,19 @@ export const metadata: Metadata = {
     'Learn about the tools and resources available to help you ditch your rent.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
     <html lang='en'>
-      <body className={`${outfit.variable} ${crimsonPro.variable} antialiased`}>
+      <body
+        className={`${outfit.variable} ${libreBaskerville.variable} antialiased`}
+      >
+        <Header />
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>

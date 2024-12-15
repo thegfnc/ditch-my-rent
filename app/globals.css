@@ -4,19 +4,14 @@
 
 @layer base {
   :root {
-    --white: #fbfbec;
-    --black: #0a1723;
-    --light-blue: #0dd2f5;
-    --dark-blue: #4153c4;
-    --orange: #ffb62c;
-    --red: #fd076e;
+    --whiteish: 251 251 236;
+    --blackish: 10 23 35;
+    --light-blue: 13 210 245;
+    --dark-blue: 65 83 196;
+    --red-orange: 253 93 77;
 
-    --background: #fbfbec;
-    --foreground: #0a1723;
-    --card: #fbfbec;
-    --card-foreground: #000000;
-    --popover: #fbfbec;
-    --popover-foreground: #000000;
+    --background: var(--whiteish);
+    --foreground: var(--blackish);
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
@@ -27,9 +22,8 @@
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: #000000;
+    --ring: var(--blackish);
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -45,7 +39,11 @@
   }
 
   body {
-    @apply bg-background font-serif leading-snug tracking-tight text-foreground;
+    @apply bg-background font-sans leading-snug tracking-tight text-foreground;
+  }
+
+  a {
+    @apply text-dark-blue no-underline underline-offset-[3px];
   }
 
   h1,
@@ -67,5 +65,13 @@
     width: 1px !important;
     padding: 0 !important;
     border: 0 !important;
+  }
+
+  .border-line-hide {
+    @apply relative w-max overflow-hidden leading-tight after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:translate-x-0 after:bg-current after:duration-300 after:ease-in-out hover:after:translate-x-full focus:after:translate-x-full;
+  }
+
+  .border-line-show {
+    @apply relative w-max overflow-hidden leading-tight after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:-translate-x-full after:bg-current after:duration-300 after:ease-in-out hover:after:translate-x-0 focus:after:translate-x-0;
   }
 }
