@@ -84,7 +84,7 @@ export default async function CategoryPage(props: CategoryProps) {
               <Link key={article._id} href={`/article/${article.slug.current}`}>
                 <Card
                   key={article._id}
-                  className='bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
+                  className='h-full bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'
                 >
                   <Image
                     src={getImageUrl(article.featuredImage)
