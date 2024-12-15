@@ -103,37 +103,39 @@ export default async function CategoryPage(props: CategoryProps) {
                     unoptimized
                     placeholder={article.featuredImage.asset.metadata.lqip}
                   />
-                  <CardHeader>
-                    <CardTitle className='leading-tighter text-[20px] font-bold'>
-                      {article.title}
-                    </CardTitle>
-                    <CardDescription className='font-serif'>
-                      {toPlainText(article.content).slice(0, 120)}...
-                    </CardDescription>
-                  </CardHeader>
-                  <CardFooter>
-                    <div className='grid grid-cols-[auto,1fr] items-center gap-2 text-sm'>
-                      <Avatar className='h-6 w-6 border-[1px] border-slate-400'>
-                        <AvatarImage
-                          src={getImageUrl(article.author.profilePicture)
-                            .width(1200)
-                            .quality(90)
-                            .url()}
-                          className='not-prose object-cover'
-                          style={{
-                            objectPosition: `${(article.author.profilePicture.hotspot?.x || 0.5) * 100}% ${(article.author.profilePicture.hotspot?.y || 0.5) * 100}%`,
-                          }}
-                          alt='@shadcn'
-                        />
-                        <AvatarFallback>
-                          {getInitialsFromFullName(article.author.fullName)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className='text-xs'>
-                        By {article.author.fullName}
+                  <div className='flex flex-col justify-between'>
+                    <CardHeader>
+                      <CardTitle className='leading-tighter text-[20px] font-bold'>
+                        {article.title}
+                      </CardTitle>
+                      <CardDescription className='font-serif'>
+                        {toPlainText(article.content).slice(0, 120)}...
+                      </CardDescription>
+                    </CardHeader>
+                    <CardFooter>
+                      <div className='grid grid-cols-[auto,1fr] items-center gap-2 text-sm'>
+                        <Avatar className='h-6 w-6 border-[1px] border-slate-400'>
+                          <AvatarImage
+                            src={getImageUrl(article.author.profilePicture)
+                              .width(1200)
+                              .quality(90)
+                              .url()}
+                            className='not-prose object-cover'
+                            style={{
+                              objectPosition: `${(article.author.profilePicture.hotspot?.x || 0.5) * 100}% ${(article.author.profilePicture.hotspot?.y || 0.5) * 100}%`,
+                            }}
+                            alt='@shadcn'
+                          />
+                          <AvatarFallback>
+                            {getInitialsFromFullName(article.author.fullName)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className='text-xs'>
+                          By {article.author.fullName}
+                        </div>
                       </div>
-                    </div>
-                  </CardFooter>
+                    </CardFooter>
+                  </div>
                 </Card>
               </Link>
             ))

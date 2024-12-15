@@ -83,7 +83,7 @@ export default async function ArticlePage(props: ArticleProps) {
           <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[32px] font-extrabold text-blackish md:text-[48px]'>
             {articleData.title}
           </h1>
-          <figure>
+          <figure className='mb-4'>
             <Image
               src={getImageUrl(articleData.featuredImage)
                 .width(1200)
@@ -94,7 +94,10 @@ export default async function ArticlePage(props: ArticleProps) {
                 articleData.featuredImage.asset.metadata.dimensions.height
               }
               alt={articleData.featuredImage.caption}
-              className={`w-full rounded`}
+              className='aspect-[16/9] w-full rounded-lg object-cover'
+              style={{
+                objectPosition: `${(articleData.featuredImage.hotspot?.x || 0.5) * 100}% ${(articleData.featuredImage.hotspot?.y || 0.5) * 100}%`,
+              }}
               priority
               unoptimized
               placeholder={articleData.featuredImage.asset.metadata.lqip}
@@ -103,7 +106,7 @@ export default async function ArticlePage(props: ArticleProps) {
               {articleData.featuredImage.caption}
             </figcaption>
           </figure>
-          <div className='grid grid-cols-[auto,1fr] gap-4 border-y-[1px] border-slate-400 py-4 text-sm'>
+          <div className='grid grid-cols-[auto,1fr] gap-4 border-y-[1px] border-blackish/40 py-4 text-sm'>
             <Avatar className='ml-2 mt-1 h-12 w-12 border-[1px] border-blackish'>
               <AvatarImage
                 src={getImageUrl(articleData.author.profilePicture)
@@ -205,7 +208,7 @@ export default async function ArticlePage(props: ArticleProps) {
           />
         </div>
 
-        <div className='not-prose flex flex-wrap items-center gap-2 border-t-[1px] border-slate-400 pt-6'>
+        <div className='not-prose flex flex-wrap items-center gap-2 border-t-[1px] border-blackish/20 pt-6'>
           <h4 className='text-sm'>Tags:</h4>
           {articleData.tags.map(tag => (
             <Badge key={tag._key}>{tag.label}</Badge>
