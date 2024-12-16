@@ -67,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     query: ALL_ARTICLES_QUERY,
   })
 
-  const articlePages: MetadataRoute.Sitemap[0][] = data.map((article) => ({
+  const articlePages: MetadataRoute.Sitemap = data.map((article) => ({
     url: `https://ditchmyrent.com/article/${article.slug.current}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
