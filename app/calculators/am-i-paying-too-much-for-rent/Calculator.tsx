@@ -104,8 +104,10 @@ const calculatorSchema = z
   })
   .required()
 
-export type CalculatorProps = {
-  onSubmit: (values: z.infer<typeof calculatorSchema>) => void
+export type CalculatorSchema = z.infer<typeof calculatorSchema>
+
+type CalculatorProps = {
+  onSubmit: (values: CalculatorSchema) => void
 }
 
 export default function Calculator({ onSubmit }: CalculatorProps) {

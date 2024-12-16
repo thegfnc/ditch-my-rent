@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import Main from '@/components/Main'
 import Link from 'next/link'
-import Calculator, { CalculatorProps } from './Calculator'
+import Calculator, { CalculatorSchema } from './Calculator'
 
 export default function AmIPayingTooMuchForRent() {
-  const [values, setValues] = useState<CalculatorProps | null>(null)
+  const [values, setValues] = useState<CalculatorSchema | null>(null)
 
   return (
     <Main className='px-4 py-4 md:px-12 md:py-8'>
@@ -24,7 +24,9 @@ export default function AmIPayingTooMuchForRent() {
         </header>
 
         <div className='leading mt-12 grid grid-cols-3 gap-10'>
-          <Calculator onSubmit={values => setValues(values)} />
+          <Calculator
+            onSubmit={(values: CalculatorSchema) => setValues(values)}
+          />
           <div className='col-span-2'>
             {values ? (
               <pre>{JSON.stringify(values, null, 2)}</pre>
