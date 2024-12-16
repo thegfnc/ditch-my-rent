@@ -9,6 +9,7 @@ import { defineQuery, PortableText } from 'next-sanity'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { memo, Suspense } from 'react'
+import Link from 'next/link'
 
 type ArticleProps = {
   params: Promise<{
@@ -74,12 +75,12 @@ export default async function ArticlePage(props: ArticleProps) {
     <Main className='px-4 py-4 md:px-12 md:py-8'>
       <article className='prose mx-auto'>
         <header>
-          <a
+          <Link
             href={'/' + articleData.category}
             className='not-prose border-line-hide text-red-orange block font-semibold uppercase'
           >
             {getCategoryNameFromSlug(articleData.category)}
-          </a>
+          </Link>
           <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[32px] font-extrabold text-blackish md:text-[48px]'>
             {articleData.title}
           </h1>
@@ -145,13 +146,13 @@ export default async function ArticlePage(props: ArticleProps) {
                     ? '_blank'
                     : undefined
                   return (
-                    <a
+                    <Link
                       href={value?.href}
                       target={target}
                       rel={target === '_blank' ? 'noindex nofollow' : ''}
                     >
                       {children}
-                    </a>
+                    </Link>
                   )
                 },
               },

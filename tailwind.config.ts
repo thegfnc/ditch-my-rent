@@ -20,6 +20,7 @@ export default {
         'light-blue': 'rgb(var(--light-blue))',
         'dark-blue': 'rgb(var(--dark-blue))',
         'red-orange': 'rgb(var(--red-orange))',
+        'purple': 'rgb(var(--purple))',
 
         background: 'rgb(var(--whiteish))',
         foreground: 'rgb(var(--blackish))',

@@ -6,9 +6,10 @@
   :root {
     --whiteish: 251 251 236;
     --blackish: 10 23 35;
-    --light-blue: 13 210 245;
+    --light-blue: 41 119 235;
     --dark-blue: 65 83 196;
     --red-orange: 253 93 77;
+    --purple: 83 33 104;
 
     --background: var(--whiteish);
     --foreground: var(--blackish);
