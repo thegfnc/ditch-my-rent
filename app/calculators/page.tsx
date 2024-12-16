@@ -1,11 +1,11 @@
 import Main from '@/components/Main'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import Link from 'next/link'
+// import {
+//   Card,
+//   CardDescription,
+//   CardHeader,
+//   CardTitle,
+// } from '@/components/ui/card'
+// import Link from 'next/link'
 
 export default async function CalculatorsPage() {
   return (
@@ -13,7 +13,8 @@ export default async function CalculatorsPage() {
       <h1 className='text-6xl font-bold'>Calculators</h1>
 
       <div className='mt-10'>
-        <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        <p>Calculators coming soon...</p>
+        {/* <div className='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
           <Link href={`/calculators/am-i-paying-too-much-for-rent`}>
             <Card className='bg-white transition-shadow duration-500 hover:shadow-xl active:shadow-sm'>
               <CardHeader>
@@ -28,7 +29,7 @@ export default async function CalculatorsPage() {
               </CardHeader>
             </Card>
           </Link>
-        </div>
+        </div> */}
       </div>
     </Main>
   )

@@ -23,11 +23,11 @@ export default function AmIPayingTooMuchForRent() {
           </h1>
         </header>
 
-        <div className='leading mt-12 grid grid-cols-3 gap-10'>
+        <div className='leading mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3'>
           <Calculator
             onSubmit={(values: CalculatorSchema) => setValues(values)}
           />
-          <div className='col-span-2'>
+          <div className='lg:col-span-2'>
             {values ? (
               <pre>{JSON.stringify(values, null, 2)}</pre>
             ) : (
