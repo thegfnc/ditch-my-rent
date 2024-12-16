@@ -4,6 +4,7 @@ import { Libre_Baskerville, Outfit } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Script from 'next/script'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -41,6 +42,16 @@ export default async function RootLayout({
         {children}
         <Footer />
         <Analytics />
+        <Script src='https://www.googletagmanager.com/gtag/js?id=G-WSJDKKNT29' />
+        <Script id='google-analytics'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-WSJDKKNT29');
+          `}
+        </Script>
       </body>
     </html>
   )
