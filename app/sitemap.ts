@@ -1,8 +1,4 @@
 import { MetadataRoute } from 'next'
-// import getCurrentLocationFromUrlParams from './helpers/getCurrentLocationFromUrlParams'
-// import getChildLocationsFromLocation from './helpers/getChildLocationGroupsFromLocation'
-// import getUrlFromCurrentLocation from './helpers/getUrlFromCurrentLocation'
-// import { IIHD_country, CurrentLocation } from './types'
 import { cmsFetch } from '../data/client'
 import { defineQuery } from 'next-sanity'
 import { DIMR_blogPost } from '@/types'
