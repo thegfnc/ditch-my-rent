@@ -5,9 +5,27 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { ResolvingMetadata } from 'next'
 import Link from 'next/link'
 
 const HIDE_CALCULATORS = true
+
+export async function generateMetadata(props: null, parent: ResolvingMetadata) {
+  const { openGraph } = await parent
+
+  const pathname = '/calculators'
+
+  return {
+    title: 'Calculators',
+    alternates: {
+      canonical: pathname,
+    },
+    openGraph: {
+      ...openGraph,
+      url: pathname,
+    },
+  }
+}
 
 export default async function CalculatorsPage() {
   return (
