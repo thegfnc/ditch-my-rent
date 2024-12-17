@@ -23,7 +23,7 @@ type CategoryProps = {
 }
 
 const CATEGORY_QUERY = defineQuery(`
-  *[_type == "DIMR_blogPost" && category == $slug]{
+  *[_type == "DIMR_blogPost" && category == $slug] | order(publishedAt desc) {
     _id,
     title,
     slug,
