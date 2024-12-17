@@ -10,7 +10,10 @@ import Link from 'next/link'
 
 const HIDE_CALCULATORS = true
 
-export async function generateMetadata(props: null, parent: ResolvingMetadata) {
+export async function generateMetadata(
+  props: unknown,
+  parent: ResolvingMetadata
+) {
   const { openGraph } = await parent
 
   const pathname = '/calculators'
