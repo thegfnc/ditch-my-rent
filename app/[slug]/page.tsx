@@ -14,6 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getInitialsFromFullName } from '@/utils/getInitialsFromFullName'
+import { Metadata, ResolvingMetadata } from 'next'
 
 type CategoryProps = {
   params: Promise<{
@@ -58,6 +59,31 @@ const CATEGORY_QUERY = defineQuery(`
     }
   }
 `)
+
+export async function generateMetadata(
+  props: CategoryProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const params = await props.params
+
+  const { slug } = params
+
+  const { openGraph } = await parent
+  const pathname = '/' + slug
+
+  const categoryName = getCategoryNameFromSlug(slug)
+
+  return {
+    title: categoryName + ' Articles',
+    alternates: {
+      canonical: pathname,
+    },
+    openGraph: {
+      ...openGraph,
+      url: pathname,
+    },
+  }
+}
 
 export default async function CategoryPage(props: CategoryProps) {
   const params = await props.params
@@ -105,7 +131,7 @@ export default async function CategoryPage(props: CategoryProps) {
                   />
                   <div className='flex flex-grow flex-col justify-between'>
                     <CardHeader>
-                      <CardTitle className='leading-tighter text-[20px] font-bold'>
+                      <CardTitle className='text-[20px] font-bold leading-tighter'>
                         {article.title}
                       </CardTitle>
                       <CardDescription className='font-serif'>
