@@ -23,9 +23,9 @@ const libreBaskerville = Libre_Baskerville({
 })
 
 export const metadata: Metadata = {
-  title: 'Ditch My Rent',
+  title: "Finding Ways To Unburden America's Renters | Ditch My Rent",
   description:
-    'Learn about the tools and resources available to help you ditch your rent.',
+    "Half of Americans are paying too much for rent and don't even know it. We're tackling the housing crisis by empowering renters to reclaim the American Dream.",
 }
 
 export default async function RootLayout({
