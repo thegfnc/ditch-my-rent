@@ -91,6 +91,7 @@ export async function generateMetadata(
       ],
     },
     keywords: [...articleData.tags.map(tag => tag.label), ...(keywords || [])],
+    authors: [{ name: articleData.author.fullName }],
   }
 }
 
