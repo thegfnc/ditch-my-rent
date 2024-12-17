@@ -5,11 +5,12 @@ import { Badge } from '@/components/ui/badge'
 import { DIMR_blogPost } from '@/types'
 import getCategoryNameFromSlug from '@/utils/getCategoryNameFromSlug'
 import { getInitialsFromFullName } from '@/utils/getInitialsFromFullName'
-import { defineQuery, PortableText } from 'next-sanity'
+import { defineQuery, PortableText, toPlainText } from 'next-sanity'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { memo, Suspense } from 'react'
 import Link from 'next/link'
+import { Metadata, ResolvingMetadata } from 'next'
 
 type ArticleProps = {
   params: Promise<{
@@ -60,16 +61,47 @@ const ARTICLE_QUERY = defineQuery(`
   }
 `)
 
+export async function generateMetadata(
+  props: ArticleProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const params = await props.params
+
+  const { slug } = params
+
+  const { openGraph, keywords } = await parent
+  const pathname = '/article/' + slug
+
+  const articleData = await cmsFetch<DIMR_blogPost>({
+    query: ARTICLE_QUERY,
+    params: { slug },
+  })
+
+  return {
+    title: `${articleData.title} Article`,
+    description: toPlainText(articleData.content).slice(0, 160) + '...',
+    alternates: {
+      canonical: pathname,
+    },
+    openGraph: {
+      ...openGraph,
+      url: pathname,
+      images: [
+        getImageUrl(articleData.featuredImage).width(1200).quality(90).url(),
+      ],
+    },
+    keywords: [...articleData.tags.map(tag => tag.label), ...(keywords || [])],
+  }
+}
+
 export default async function ArticlePage(props: ArticleProps) {
   const params = await props.params
   const { slug } = params
 
-  const [articleData] = await Promise.all([
-    cmsFetch<DIMR_blogPost>({
-      query: ARTICLE_QUERY,
-      params: { slug },
-    }),
-  ])
+  const articleData = await cmsFetch<DIMR_blogPost>({
+    query: ARTICLE_QUERY,
+    params: { slug },
+  })
 
   return (
     <Main className='px-4 py-4 md:px-12 md:py-8'>
@@ -77,11 +109,11 @@ export default async function ArticlePage(props: ArticleProps) {
         <header>
           <Link
             href={'/' + articleData.category}
-            className='not-prose border-line-hide text-red-orange block font-semibold uppercase'
+            className='not-prose border-line-hide block font-semibold uppercase text-red-orange'
           >
             {getCategoryNameFromSlug(articleData.category)}
           </Link>
-          <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[32px] font-extrabold text-blackish md:text-[48px]'>
+          <h1 className='not-prose !mt-4 text-pretty text-[32px] font-extrabold leading-tightest text-blackish md:text-[48px]'>
             {articleData.title}
           </h1>
           <figure className='mb-4'>

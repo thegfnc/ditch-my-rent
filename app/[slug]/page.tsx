@@ -89,12 +89,10 @@ export default async function CategoryPage(props: CategoryProps) {
   const params = await props.params
   const { slug } = params
 
-  const [categoryData] = await Promise.all([
-    cmsFetch<DIMR_blogPost[]>({
-      query: CATEGORY_QUERY,
-      params: { slug },
-    }),
-  ])
+  const categoryData = await cmsFetch<DIMR_blogPost[]>({
+    query: CATEGORY_QUERY,
+    params: { slug },
+  })
 
   const categoryName = getCategoryNameFromSlug(slug)
 
