@@ -79,7 +79,7 @@ export async function generateMetadata(
 
   return {
     title: `${articleData.title} Article`,
-    description: toPlainText(articleData.content).slice(0, 160) + '...',
+    description: toPlainText(articleData.content).slice(0, 157) + '...',
     alternates: {
       canonical: pathname,
     },
