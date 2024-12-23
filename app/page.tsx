@@ -62,7 +62,7 @@ export default async function Home() {
     <Main className='gap-16 px-3 py-4 md:px-4 lg:px-12 lg:py-6'>
       <h1 className='visually-hidden'>Ditch My Rent</h1>
 
-      <div className='rounded-xl bg-gradient-to-br from-light-blue/20 to-light-blue/50 px-6 py-8 md:p-10'>
+      <div className='rounded-xl bg-gradient-to-br from-light-blue/20 to-dark-blue/40 px-6 py-8 md:p-10'>
         <div className='grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-[9fr_11fr] md:gap-12'>
           <div className='flex items-center justify-center'>
             <Image
