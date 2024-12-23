@@ -9,7 +9,7 @@ export default function AmIPayingTooMuchForRent() {
   const [values, setValues] = useState<CalculatorSchema | null>(null)
 
   return (
-    <Main className='px-2 py-4 md:px-12 md:py-8'>
+    <Main className='px-3 py-4 md:px-12 md:py-8'>
       <article className='mx-auto'>
         <header>
           <Link

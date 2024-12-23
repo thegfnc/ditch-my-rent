@@ -59,7 +59,7 @@ export default async function Home() {
   })
 
   return (
-    <Main className='gap-16 px-2 py-4 md:px-4 lg:px-12 lg:py-6'>
+    <Main className='gap-16 px-3 py-4 md:px-4 lg:px-12 lg:py-6'>
       <h1 className='visually-hidden'>Ditch My Rent</h1>
 
       <div className='rounded-xl bg-light-blue/20 px-6 py-8 md:p-10'>

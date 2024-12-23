@@ -97,7 +97,7 @@ export default async function CategoryPage(props: CategoryProps) {
   const categoryName = getCategoryNameFromSlug(slug)
 
   return (
-    <Main className='px-2 py-6 md:px-4 md:py-12 lg:px-12'>
+    <Main className='px-3 py-6 md:px-4 md:py-12 lg:px-12'>
       <h1 className='text-4xl font-bold md:text-6xl'>{categoryName}</h1>
 
       <div className='mt-6 md:mt-10'>
