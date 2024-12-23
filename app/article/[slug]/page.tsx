@@ -11,6 +11,7 @@ import Image from 'next/image'
 import { memo, Suspense } from 'react'
 import Link from 'next/link'
 import { Metadata, ResolvingMetadata } from 'next'
+import NewsletterSignUpForm from '@/components/NewsletterSignUpForm'
 
 type ArticleProps = {
   params: Promise<{
@@ -103,6 +104,20 @@ export default async function ArticlePage(props: ArticleProps) {
     query: ARTICLE_QUERY,
     params: { slug },
   })
+
+  for (let i = 5; i < articleData.content.length; i++) {
+    const currentBlock = articleData.content[i]
+
+    if (
+      currentBlock._type === 'block' &&
+      ['h1', 'h2', 'h3', 'h4'].includes(currentBlock.style)
+    ) {
+      articleData.content.splice(i, 0, {
+        _type: 'newsletterSignUpForm',
+      })
+      break
+    }
+  }
 
   return (
     <Main className='px-2 py-4 md:px-4 md:py-8 lg:px-12'>
@@ -237,6 +252,13 @@ export default async function ArticlePage(props: ArticleProps) {
                     </Suspense>
                   )
                 }),
+                newsletterSignUpForm: function CaseStudyNewsletterSignUpForm() {
+                  return (
+                    <div className='not-prose my-8 rounded-lg bg-blackish/5 p-4 md:p-6'>
+                      <NewsletterSignUpForm showDescription={true} />
+                    </div>
+                  )
+                },
               },
             }}
           />

@@ -1,4 +1,5 @@
-import { TypedObject } from '@portabletext/types'
+import { ArbitraryTypedObject } from "@portabletext/types"
+import { PortableTextBlock } from "next-sanity"
 
 export type Image = {
   _type: 'image'
@@ -37,7 +38,7 @@ export type DIMR_blogPost = {
     current: string
   }
   featuredImage: Image
-  content: TypedObject[]
+  content: ArbitraryTypedObject[] | PortableTextBlock[]
   category: string
   author: DIMR_author
   tags: Array<{

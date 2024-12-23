@@ -70,11 +70,11 @@ export default function NewsletterSignUpForm({
         </Alert>
       ) : (
         <Form {...form}>
-          <h4 className={`text-nowra leading-none ${CURRENT_STYLES.heading}`}>
+          <h4 className={`text-nowrap leading-none ${CURRENT_STYLES.heading}`}>
             Subscribe to our newsletter
           </h4>
           {showDescription && (
-            <p className='mt-1 text-balance text-sm text-blackish/60'>
+            <p className='mt-1 text-balance font-sans text-sm text-blackish/60'>
               Stay up to date with the latest news, articles, and updates. We
               promise we won&apos;t send spam.
             </p>
