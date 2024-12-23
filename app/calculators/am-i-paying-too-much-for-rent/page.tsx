@@ -9,16 +9,16 @@ export default function AmIPayingTooMuchForRent() {
   const [values, setValues] = useState<CalculatorSchema | null>(null)
 
   return (
-    <Main className='px-4 py-4 md:px-12 md:py-8'>
+    <Main className='px-2 py-4 md:px-12 md:py-8'>
       <article className='mx-auto'>
         <header>
           <Link
             href={'/calculators'}
-            className='not-prose border-line-hide text-red-orange block font-semibold uppercase'
+            className='not-prose border-line-hide block font-semibold uppercase text-red-orange'
           >
             Calculators
           </Link>
-          <h1 className='not-prose leading-tightest !mt-4 text-pretty text-[32px] font-extrabold text-blackish md:text-[48px]'>
+          <h1 className='not-prose !mt-4 text-pretty text-[32px] font-extrabold leading-tightest text-blackish md:text-[48px]'>
             Am I Paying Too Much for Rent?
           </h1>
         </header>

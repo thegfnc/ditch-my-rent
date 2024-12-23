@@ -64,7 +64,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-10 mx-auto max-w-screen-xl px-2 pb-2 transition-transform duration-300 md:px-4 md:pb-4 ${
+      className={`sticky top-0 z-10 mx-auto max-w-screen-xl px-2 pb-2 transition-transform duration-300 md:px-4 md:pb-4 lg:px-8 ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >

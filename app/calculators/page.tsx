@@ -32,7 +32,7 @@ export async function generateMetadata(
 
 export default async function CalculatorsPage() {
   return (
-    <Main className='px-4 py-6 md:px-12 md:py-12'>
+    <Main className='px-2 py-6 md:px-4 md:py-12 lg:px-12'>
       <h1 className='text-6xl font-bold'>Calculators</h1>
 
       <div className='mt-10'>

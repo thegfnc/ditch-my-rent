@@ -105,7 +105,7 @@ export default async function ArticlePage(props: ArticleProps) {
   })
 
   return (
-    <Main className='px-4 py-4 md:px-12 md:py-8'>
+    <Main className='px-2 py-4 md:px-4 md:py-8 lg:px-12'>
       <article className='prose mx-auto'>
         <header>
           <Link

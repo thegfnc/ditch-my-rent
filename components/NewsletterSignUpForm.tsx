@@ -10,7 +10,28 @@ import { Input } from './ui/input'
 import { z } from 'zod'
 import { newsletterSignUpSchema } from '@/data/schemas'
 
-export default function NewsletterSignUpForm() {
+type NewsletterSignUpFormProps = {
+  size?: 'sm' | 'lg'
+  showDescription?: boolean
+}
+
+const STYLES = {
+  sm: {
+    heading: 'text-base',
+    input: '',
+    button: '',
+  },
+  lg: {
+    heading: 'text-2xl',
+    input: '!text-base',
+    button: 'text-base',
+  },
+}
+
+export default function NewsletterSignUpForm({
+  size = 'lg',
+  showDescription = false,
+}: NewsletterSignUpFormProps) {
   const form = useForm<z.infer<typeof newsletterSignUpSchema>>({
     resolver: zodResolver(newsletterSignUpSchema),
     defaultValues: {
@@ -35,9 +56,10 @@ export default function NewsletterSignUpForm() {
   }
 
   const { isSubmitting, isSubmitSuccessful } = form.formState
+  const CURRENT_STYLES = STYLES[size]
 
   return (
-    <div className='flex w-full max-w-80 flex-col items-start justify-start gap-1'>
+    <div className='flex w-full flex-col items-start justify-start'>
       {isSubmitSuccessful ? (
         <Alert className='max-w-96'>
           <Check className='h-4 w-4' />
@@ -48,10 +70,18 @@ export default function NewsletterSignUpForm() {
         </Alert>
       ) : (
         <Form {...form}>
-          <h4 className='text-nowrap'>Subscribe to our newsletter</h4>
+          <h4 className={`text-nowra leading-none ${CURRENT_STYLES.heading}`}>
+            Subscribe to our newsletter
+          </h4>
+          {showDescription && (
+            <p className='mt-1 text-balance text-sm text-blackish/60'>
+              Stay up to date with the latest news, articles, and updates. We
+              promise we won&apos;t send spam.
+            </p>
+          )}
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className='flex w-full flex-grow'
+            className='mt-2 flex w-full'
           >
             <FormField
               name='email'
@@ -67,7 +97,7 @@ export default function NewsletterSignUpForm() {
                       autoComplete='email'
                       placeholder='Enter your email'
                       {...field}
-                      className='rounded-r-none border-r-0'
+                      className={`rounded-r-none border-r-0 ${CURRENT_STYLES.input}`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -75,7 +105,7 @@ export default function NewsletterSignUpForm() {
               )}
             />
             <Button
-              className='rounded-l-none'
+              className={`rounded-l-none ${CURRENT_STYLES.button}`}
               type='submit'
               disabled={isSubmitting}
               variant='secondary'
